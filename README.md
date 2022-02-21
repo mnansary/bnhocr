@@ -49,3 +49,45 @@ Graphics    : Intel® UHD Graphics 620 (Kabylake GT2)
 Gnome       : 3.36.8
 ```
 
+# About bnhocr: Printed and Handwritten text recognition
+There are available models such as : [tesseract](https://github.com/tesseract-ocr/tesseract),[Easy OCR](https://github.com/JaidedAI/EasyOCR). that covers bangla printed text to a considerable accuracy.In this project we solely focus on handwritten texts.
+
+* The idea of **bnhocr** project is to convert handwritten graphemes to a unique representational space (in our example font faced image).
+* Converting single graphemes **does not cover words**. Separated graphemes can be used if a grapheme localization model is used.[Watch This Video To For The Basic Idea](https://www.youtube.com/watch?v=7Ye9oV1MqbU) 
+
+![](/resources/idea.png)
+
+* To extend for words, we build on single grapheme transformation model and extend on handwritten words.
+* Then we use an existing recognizer (in our example-tesseract)
+
+![](/resources/implementation.png)
+
+* A short presentation about this work is available at **resources/slides.pdf**
+
+
+
+# Demo
+* clone the repo
+* install dependencies 
+* ``` streamlit run app.py```
+
+![](/resources/demo.png)
+
+# Graphemes
+* To understand the concept of bangla graphemes: [A large multi-target dataset of common bengali handwritten graphemes](https://www.springerprofessional.de/en/a-large-multi-target-dataset-of-common-bengali-handwritten-graph/19631662)
+* Cite the paper if you find it useful in your research
+```bibtext
+@inproceedings{alam2021large,
+  title={A large multi-target dataset of common bengali handwritten graphemes},
+  author={Alam, Samiul and Reasat, Tahsin and Sushmit, Asif Shahriyar and Siddique, Sadi Mohammad and Rahman, Fuad and Hasan, Mahady and Humayun, Ahmed Imtiaz},
+  booktitle={International Conference on Document Analysis and Recognition},
+  pages={383--398},
+  year={2021},
+  organization={Springer}
+}
+```
+
+# Known Issues
+* **model is not cached while running in streamlit**
+* **only launched for tesseract**
+  * Easy OCR and Detection models can be easily added for wide applications 

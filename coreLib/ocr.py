@@ -89,7 +89,7 @@ class BHOCR(object):
         if self.use_tesseract:
             res = pytesseract.image_to_string(img, lang='ben', config='--psm 6')
             print("Tesseract Recognition:",res)
-            return res.split("\n")[0]
+            return res.split("\n")[0],img
         else:
             return img 
         

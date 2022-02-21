@@ -76,6 +76,8 @@ def main():
     
             with st.spinner('Analyzing...'):
                 img=np.asarray(canvas_result.image_data).astype(np.uint8)
+                cv2.imwrite("tests/data.png",img)
+                st.write("Image saved at:tests/data.png")
                 img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
                 res = pytesseract.image_to_string(img, lang='ben', config='--psm 6')
                 st.write(f"Tesseract Recognition Before Transformation:",res.split("\n")[0])
